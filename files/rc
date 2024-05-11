@@ -1,0 +1,5 @@
+REPO="https://raw.githubusercontent.com/sanzVPN/sanz/main/"
+
+
+
+wget -O /root/.config/rclone/rclone.conf "${REPO}cfg/rclone.conf"
