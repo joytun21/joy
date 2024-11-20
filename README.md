@@ -1,4 +1,4 @@
-# Ingat Ya DOSA!!
+# AUTOSCRIPT V1
 
 # Hubungi saya jika ada yang perlu ditanyakan
 # Telegram/WhatsApp
