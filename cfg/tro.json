@@ -1,0 +1,99 @@
+{
+  "log": {
+    "loglevel": "warning",
+    "error": "/var/log/xray/errortro.log",
+    "access": "/var/log/xray/accestro.log"
+  },
+  "api": {
+    "services": ["HandlerService", "LoggerService", "StatsService"],
+    "tag": "api"
+  },
+  "stats": {},
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 2,
+        "connIdle": 150,
+        "uplinkOnly": 0,
+        "downlinkOnly": 0,
+        "statsUserUplink": true,
+        "statsUserDownlink": true
+      }
+    }
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10003,
+      "protocol": "trojan",
+      "settings": {
+        "decryption": "none",
+        "clients": [{"password": "1d1c1d94-6987-4658-a4dc-8821a30fe7e0"}],
+        "udp": true
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {"path": "/trojan-ws"}
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10007,
+      "protocol": "trojan",
+      "settings": {
+        "decryption": "none",
+        "clients": [{"password": "1d1c1d94-6987-4658-a4dc-8821a30fe7e0"}]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {"serviceName": "trojan-grpc"}
+      }
+    }
+  ],
+  "outbounds": [
+    {"protocol": "freedom", "settings": {}},
+    {"protocol": "blackhole", "settings": {}, "tag": "blocked"}
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {"type": "field", "inboundTag": ["api"], "outboundTag": "api"},
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": ["bittorrent"]
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "ip": [
+          "0.0.0.0/8", "10.0.0.0/8", "100.64.0.0/10",
+          "169.254.0.0/16", "172.16.0.0/12", "192.0.0.0/24",
+          "192.0.2.0/24", "192.168.0.0/16", "198.18.0.0/15",
+          "198.51.100.0/24", "203.0.113.0/24", "::1/128",
+          "fc00::/7", "fe80::/10"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "1.1.1.1/32", "1.0.0.1/32", "8.8.8.8/32", "8.8.4.4/32",
+          "223.5.5.5/32", "119.29.29.29/32", "180.76.76.76/32",
+          "114.114.114.114/32", "geoip:cn", "geoip:jp", "geoip:in"
+        ]
+      }
+    ]
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "https://1.1.1.1/dns-query",
+        "domains": ["geosite:geolocation-!cn"],
+        "expectIPs": ["geoip:!cn"]
+      },
+      "8.8.8.8",
+      "114.114.114.114"
+    ]
+  }
+}
