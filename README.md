@@ -14,3 +14,7 @@ bash -c "$(wget -qO- https://raw.githubusercontent.com/joytun21/joy/main/joy.sh)
 
 # Auto Script Lite
 ![Auto Script](https://raw.githubusercontent.com/joytun21/joy/main/image/onta.jpg)
+
+
+### Credits
+- [Dharak36](https://github.com/dharak36/Xray-core)
