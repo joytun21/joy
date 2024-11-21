@@ -12,5 +12,5 @@
 bash -c "$(wget -qO- https://raw.githubusercontent.com/joytun21/joy/main/joy.sh)"
 ```
 
-# Auto Script Beta
+# Auto Script Lite
 ![Auto Script](https://raw.githubusercontent.com/joytun21/joy/main/image/onta.jpg)
