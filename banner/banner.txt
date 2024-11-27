@@ -1,10 +1,13 @@
-<p style="text-align:center">
+<p style="text-align:center";><font color='blue'>◇━━━━━━━━━━━━━━━━━━━━━◇</font><br>
 <font color='#00FF00'> PREMIUM VPN STORE </font> <br>
+<font color='blue'>◇━━━━━━━━━━━━━━━━━━━━━◇</font><br>
 <font color='#DC143C'>! TERM OF SERVICE !</font><br> 
 <font color='#8A2BE2'>No Spam</font><br> 
 <font color='#D2691E'>No DDoS</font><br> 
 <font color='#DC143C'>No Hacking And Carding</font><br>
-<font color='#8B008B'>Max Login 2 Device</font><br>
+<font color='#DC143C'>No Multi Login</font><br>
+<font color='blue'>◇━━━━━━━━━━━━━━━━━━━━━◇</font><br>
 <font color='#00FF00'> Thankyou For Your Order </font> <br>
 <font color='#00FF00'> AutoScript By MRCK TUNNEL </font> <br>
+<font color='blue'>◇━━━━━━━━━━━━━━━━━━━━━◇</font><br>
 
